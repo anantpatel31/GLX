@@ -60,6 +60,14 @@ public class Customer {
 		this.orders = orders;
 	}
 
+	public Customer(Integer id, String customerName, String password, String userName, String email) {
+		this.id = id;
+		this.customerName = customerName;
+		this.password = password;
+		this.userName = userName;
+		this.email = email;
+	}
+
 	public String getUserName() {
 		return userName;
 	}
