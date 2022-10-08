@@ -41,6 +41,25 @@ class ProductTest {
 		Product product = new Product(6, "MyProduct", "MyDescription", 2500.00, 25, null, category);
 		assertDoesNotThrow( () -> productService.addProduct(product));
 	}
+		@Test
+	void getProductByIdTest() throws ProductException {
+		assertNotNull(productService.getProductById(6));
+		assertThrows(ProductException.class, () -> productService.getProductById(999));
+	}
+
+	@Test
+	void getProductByNameTest() throws ProductException {
+		assertNotNull(productService.getProductByName("MyProduct"));
+		assertThrows(ProductException.class, () -> productService.getProductByName("NoProduct"));
+	}
+
+	@Test
+	void getAllProducts() throws ProductException {
+		assertDoesNotThrow(() -> productService.getAllProducts());
+		productRepo.deleteAll();
+		productRepo.flush();
+		assertThrows(ProductException.class, ()-> productService.getAllProducts());
+	} 
 
 
 }
