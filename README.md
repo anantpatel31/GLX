@@ -72,6 +72,7 @@ To get a local copy up and get it running follow these simple example steps.
 This is a List of Software that should be installed on a system in order to run this project locally.
 * Java JDK
 * Spring Tools Suite
+* MySql
 
 ### Installation
 
@@ -79,7 +80,9 @@ This is a List of Software that should be installed on a system in order to run 
    ```sh
    git clone https://github.com/anantpatel31/GLX.git
    ```
-2. run the server
+2. Open the code in Spring Tools Suite
+3. Modify `pom.xml` according to your local machine.
+5. Run the Server
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
