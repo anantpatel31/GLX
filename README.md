@@ -81,11 +81,14 @@ This is a List of Software that should be installed on a system in order to run 
    git clone https://github.com/anantpatel31/GLX.git
    ```
 2. Open the code in Spring Tools Suite
-3. Modify `pom.xml` according to your local machine.
+3. Modify `application.properties` according to your local machine.
 5. Run the Server
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
+- The spring boot server will be running at port 8090 by default.
+- The mysql instance will be on port 3306
 
 
 <!-- USAGE EXAMPLES -->
