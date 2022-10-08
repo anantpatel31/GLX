@@ -61,5 +61,28 @@ class ProductTest {
 		assertThrows(ProductException.class, ()-> productService.getAllProducts());
 	} 
 
+		@Test
+	void deleteProductByIdTest() throws ProductException {
+		assertEquals("Product With ID 6 Deleted Successfully.", productService.deleteProductById(6));
+		assertThrowsExactly(ProductException.class, ()->productService.deleteProductById(999), "No product with id 999 found.");
+	}
+
+	@Test
+	void deleteProductByNameTest() throws ProductException {
+		assertEquals("Delete operation successful", productService.deleteByName("MyProduct"));
+		assertThrowsExactly(ProductException.class, ()->productService.deleteByName("MyProduct"), "No product with name MyProduct not found");
+	}
+
+	@Test
+	void updateProductTest() throws ProductException {
+		Product updatedProduct = new Product(6, "UpdatedProduct", "MyDescription", 2500.00, 25, null, category);
+		assertNotNull(productService.updateProduct(updatedProduct));
+		assertEquals(updatedProduct.toString(), productService.updateProduct(updatedProduct));
+	}
+	@Test
+	void updateProductTestMore() throws ProductException {
+		Product updatedProduct = new Product(999, "UpdatedProduct", "MyDescription", 2500.00, 25, null, category);
+		assertThrowsExactly(ProductException.class, ()->productService.updateProduct(updatedProduct), "Product not found in Database, can't Update.");
+	}
 
 }
